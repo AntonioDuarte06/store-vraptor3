@@ -15,7 +15,7 @@ public class RemocaoDeProduto {
 		
 		Session session = new CriadorDeSession(factory).getInstance();
 		
-		new ProdutoDao(session).remove(null);
+		new ProdutoDao(session).remover(null);
 	}
 
 }

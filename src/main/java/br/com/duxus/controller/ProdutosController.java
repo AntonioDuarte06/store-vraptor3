@@ -27,13 +27,15 @@ public class ProdutosController {
 		this.validator = validator;
 	}
 
-	@Get @Path("/produtos")
+	@Get 
+	@Path("/produtos")
 	public List<Produto> lista() {
 		System.out.println("lista");
 		return dao.listaTudo();
 	}
 
-	@Post @Path("/produtos")
+	@Post 
+	@Path("/produtos")
 	public void adiciona(final Produto produto) {
 
 		if (produto.getNome() == null || produto.getNome().length() < 3) {
@@ -55,25 +57,29 @@ public class ProdutosController {
 		result.redirectTo(this).lista();
 	}
 
-	@Put @Path("/produtos/{produto.id}")
+	@Put 
+	@Path("/produtos/{produto.id}")
 	public void altera(Produto produto) {
 		dao.atualiza(produto);
 		result.redirectTo(this).lista();
 	}
 
-	@Get @Path("/produtos/{id}")
+	@Get 
+	@Path("/produtos/{id}")
 	public Produto edita(Long id) {
 		return dao.carrega(id);
 	}
 
-	@Delete @Path("/produtos/{id}")
+	@Delete 
+	@Path("/produtos/{id}")
 	public void remover(Long id) {
 		Produto produto = dao.carrega(id);
 		dao.remover(produto);
 		result.redirectTo(this).lista();
 	}
 
-	@Get @Path("/produtos/novo")
+	@Get 
+	@Path("/produtos/novo")
 	public void formulario() {
 
 	}

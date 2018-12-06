@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<form action='<c:url value="/produtos/${produto.id }"/>' method="POST">
+	<form id="produtosForm" action='<c:url value="/produtos/${produto.id }"/>' method="POST">
 		<fieldset>
 
 			<legend>Editar Produto</legend>
@@ -22,10 +22,29 @@
 
 			<label for="preco">Preço:</label> <input id="preco" type="text"
 				name="produto.preco" value="${produto.preco }" />
-
-			<button type="submit" name="_method" value="PUT">Enviar</button>
+		<br>
+			<button class="link" type="submit" name="_method" value="PUT">Enviar</button>
 
 		</fieldset>
+		
+		<script type="text/javascript">
+		$('#produtosForm').validate({
+			rules: {
+				"produto.nome": {
+					required: true,
+					minlength: 3
+				},
+				"produto.descricao": {
+					required: true,
+					maxlength: 40
+				},
+				"produto.preco": {
+					required: true,
+					min: 0.0
+				}
+			}
+		});	
+	</script>
 	</form>
 
 </body>
