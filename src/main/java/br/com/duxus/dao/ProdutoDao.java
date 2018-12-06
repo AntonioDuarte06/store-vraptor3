@@ -36,7 +36,7 @@ public class ProdutoDao {
 		tx.commit();
 	}
 	
-	public void remove(Produto produto) {
+	public void remover(Produto produto) {
 		Transaction tx = session.beginTransaction();
 		session.delete(produto);
 		tx.commit();

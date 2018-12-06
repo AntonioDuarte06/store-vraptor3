@@ -66,10 +66,10 @@ public class ProdutosController {
 		return dao.carrega(id);
 	}
 
-	@Delete @Path("/produtos")
-	public void remove(Long id) {
+	@Delete @Path("/produtos/{id}")
+	public void remover(Long id) {
 		Produto produto = dao.carrega(id);
-		dao.remove(produto);
+		dao.remover(produto);
 		result.redirectTo(this).lista();
 	}
 
